@@ -1,0 +1,474 @@
+/* ========== RESET GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========== ESTRUCTURA GENERAL ========== */
+body {
+    font-family: 'Courier New', monospace;
+    background-image: url('./assets/bg.jpeg');
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    /* height: 12vh;s */
+    background-color: #10d6dd;
+    animation: fadeInUp 1s ease forwards;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    z-index: 999;
+}
+
+.statistics{
+    color: #D6F5FF;
+    font-weight: bold;
+}
+
+.crudzy-say {
+    background: rgba(74, 90, 105, 0.15);
+    width: 600px;
+    min-height: 44px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 5px;
+    color: #D6F5FF;
+}
+
+.crudzy-say__title {
+    font-weight: bold;
+}
+
+.crudzy-content{
+    color: red;
+}
+
+.hidden{
+    display: none;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ========== TITULO PRINCIPAL ========== */
+.title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #D6F5FF;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow:
+        0 0 10px #1AA1A5,
+        0 0 20px #1AA1A5,
+        0 0 30px #1AA1A5,
+        0 0 40px #1AA1A5;
+    animation: titlePulse 2s ease-in-out infinite alternate;
+    margin-bottom: 10px;
+}
+
+/* ========== CAJAS DE TEXTO ========== */
+.intro-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    background: rgba(74, 90, 105, 0.15);
+    border: 2px solid #4A5A69;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 600px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 20px rgba(26, 161, 165, 0.2),
+        inset 0 0 20px rgba(26, 161, 165, 0.05);
+    animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+/* ========== TEXTOS ========== */
+.intro-text {
+    color: #D6F5FF;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 0 0 5px rgba(26, 161, 165, 0.3);
+    animation: fadeInUp 1s ease forwards;
+    text-align: justify;
+}
+
+.intro-text-red {
+    color: rgb(243, 8, 8);
+    text-shadow: 0 0 5px white;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* ========== BOTONES ========== */
+.buttons {
+    margin-top: 2rem;
+}
+
+.play-button {
+    background: linear-gradient(45deg, #1AA1A5, #10d6dd, #1AA1A5);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #D6F5FF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 0 20px rgba(20, 140, 177, 0.4),
+        0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.play-button::before {
+    content: '----';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.play-button:hover::before {
+    left: 100%;
+}
+
+.play-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 30px rgba(20, 140, 177, 0.4),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.play-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* ========== OPCIONES ========== */
+.option {
+    width: 200px;
+    font-size: 1rem;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease forwards;
+    margin: 0.5rem;
+}
+
+
+
+/* Sección para el 2 nivel */
+.doors {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.door {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 1s ease forwards;
+  cursor: pointer;
+}
+
+
+.door-img {
+  width: 100px; 
+  height: 150px;
+  background-image: url('./assets/door.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
+}
+
+.door:hover .door-img {
+  background-image: url('./assets/dooropen.gif');
+}
+
+.door-text {
+  font-size: 0.9rem;
+  width: 110px;
+  color: #D6F5FF;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 5px 10px rgba(26, 161, 165, 0.6);
+  background-color: #1AA1A5 ;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px;
+}
+
+.door:hover > .door-text{
+    background-color: #10d6dd;
+}
+
+
+
+
+
+
+.title3{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #D6F5FF;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow:
+        0 0 10px #1AA1A5,
+        0 0 20px #1AA1A5,
+        0 0 30px #1AA1A5,
+        0 0 40px #1AA1A5;
+    animation: titlePulse 2s ease-in-out infinite alternate;
+    margin-top: 7vh;
+    animation: fadeInUp 1s ease forwards;
+
+}
+
+
+
+#info {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #D6F5FF;
+    animation: fadeInUp 1s ease forwards;
+
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: repeat(2, 130px);
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease forwards;
+
+}
+
+.color-button {
+    width: 130px;
+    height: 130px;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: buttonIdle 2s infinite;
+}
+
+#green { background-color: green; }
+#red { background-color: red; }
+#yellow { background-color: yellow; }
+#blue { background-color: blue; }
+
+
+#start-button:hover {
+    background-color: #777;
+}
+
+#contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 2px solid #1AA1A5;
+  border-radius: 15px;
+  background: rgba(74, 90, 105, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 20px rgba(26, 161, 165, 0.2),
+    inset 0 0 20px rgba(26, 161, 165, 0.05);
+  animation: fadeInUp 1s ease forwards;
+  color: #D6F5FF;
+  text-align: center;
+}
+
+#contenedor h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D6F5FF;
+  text-shadow: 0 0 10px #1AA1A5;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+#puntuacion {
+  font-size: 1.2rem;
+  color: #D6F5FF;
+  margin-bottom: 20px;
+}
+
+#pregunta {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  animation: fadeInUp 1s ease forwards;
+}
+
+#opciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+#opciones .btn-crudy {
+  background: linear-gradient(45deg, #1AA1A5, #10d6dd, #1AA1A5);
+  color: #D6F5FF;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow:
+    0 0 10px rgba(20, 140, 177, 0.4),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#opciones .btn-crudy:hover {
+  transform: scale(1.05);
+  background: #10d6dd;
+}
+
+#resultado {
+  font-size: 1.4rem;
+  margin-top: 25px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #FFD700;
+}
+
+#resultado:not(:empty) {
+  animation: fadeIn 1s ease-in;
+}
+
+.burla-final {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  height: 100vh;
+  padding: 50px;
+  background-image: none !important; 
+}
+
+/* Animaciones generales de la pagina */
+@keyframes titlePulse {
+    from {
+        transform: scale(1);
+        text-shadow:
+            0 0 10px #1AA1A5,
+            0 0 20px #1AA1A5,
+            0 0 30px #1AA1A5,
+            0 0 40px #1AA1A5;
+    }
+
+    to {
+        transform: scale(1.05);
+        text-shadow:
+            0 0 15px #1AA1A5,
+            0 0 25px #1AA1A5,
+            0 0 35px #1AA1A5,
+            0 0 50px #1AA1A5,
+            0 0 60px #4A5A69;
+    }
+}
+
+@keyframes borderGlow {
+    from {
+        border-color: #4A5A69;
+        box-shadow: 0 0 20px rgba(26, 161, 165, 0.2), inset 0 0 20px rgba(26, 161, 165, 0.05);
+    }
+
+    to {
+        border-color: #1AA1A5;
+        box-shadow: 0 0 30px rgba(26, 161, 165, 0.3), inset 0 0 30px rgba(26, 161, 165, 0.1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Juego de secuencia */
+
+@keyframes flashSequence {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes flashClick {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+@keyframes buttonIdle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1); }
+}
+
+@keyframes titleFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes errorShake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-20px); }
+    40% { transform: translateX(20px); }
+    60% { transform: translateX(-15px); }
+    80% { transform: translateX(15px); }
+    100% { transform: translateX(0); }
+}
+
+.sequence-active {
+    animation: flashSequence 0.3s;
+}
+
+.click-active {
+    animation: flashClick 0.3s;
+}
+
+body.error {
+    animation: errorShake 0.5s;
+}
+
+
+
